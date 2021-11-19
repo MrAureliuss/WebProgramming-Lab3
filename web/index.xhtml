@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+   <title>Третья лабораторная работа по веб-программированию</title>
+   <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet"/>
+   <h:outputStylesheet library = "css" name = "main.css"  />
+   <h:outputStylesheet library = "css" name = "index.css"  />
+   <h:outputScript library="js" name="time.js" target="head"/>
+</h:head>
+
+
+<h:body>
+   <div class="headerRect animated rotateIn">
+      <div class="avatarRect">
+         <h:graphicImage name="img/avatar.png"/>
+      </div>
+      <div class="aboutMeRect">
+         Симонян Эрик Самвелович
+         <br/>
+         Вариант: 15123
+         <br/>
+         Группа: P3215
+         <br/>
+         <div class="photoLinksRect">
+            <div class="grow">
+               <a class='photo vk' target="_blank" href='https://vk.com/eriksimohyan'></a>
+               <a class='photo github' target="_blank" href='https://github.com/MrAureliuss'></a>
+               <a class='photo telegram' target="_blank" href='https://teleg.run/MrAurelius'></a>
+            </div>
+         </div>
+      </div>
+   </div>
+
+   <div class="timerRect" id="timerRect">
+      Текущее время
+      <br/>
+      <div id="time"></div>
+      <div align="center">
+         <h:button id="but" class="but" outcome="to_main" value="К основной странице"/>
+      </div>
+   </div>
+
+</h:body>
+
+</html>

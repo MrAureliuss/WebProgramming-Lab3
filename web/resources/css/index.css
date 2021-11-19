@@ -1,0 +1,97 @@
+.aboutMeRect {
+    position: absolute;
+    width: 400px;
+    height: 140px;
+    margin-top: 2px;
+    margin-left: 35%;
+    padding: 12px 10px 10px 10px;
+}
+
+.headerRect {
+    text-align: left;
+    margin : 250px auto 0 auto;
+    width: 510px;
+    height: 150px;
+    mix-blend-mode: hard-light;
+    border-radius: 20px;
+    background-color: rgba(205, 205, 205, 0.85);
+    font-family: fantasy;
+    font-size: 24px;
+    color: white;
+}
+
+.timerRect {
+    text-align: center;
+    margin : 60px auto 0 auto;
+    width: 300px;
+    height: 150px;
+    mix-blend-mode: hard-light;
+    border-radius: 20px;
+    background-color: rgba(205, 205, 205, 0.85);
+    font-family: fantasy;
+    font-size: 24px;
+    color: black;
+    padding-top: 30px;
+}
+
+.photoLinksRect {
+    position: absolute;
+    width: 400px;
+    height: 40px;
+    margin-top: 5px;
+}
+
+.avatarRect {
+    position: fixed;
+    width: 140px;
+    height: 140px;
+    margin-top: 2px;
+    margin-left: 2%;
+    padding: 3px 10px 10px 10px;
+}
+
+.but {
+    color: black;
+    text-align: center;
+    padding: 1% 2%;
+    margin: 2%;
+    background: white;
+    border: solid #FFD7D5;
+    cursor: pointer;
+    border-radius: 30px;
+}
+
+.but:hover {
+    background: #FFD7D5;
+}
+
+/* Photos */
+.photo {
+    display: block;
+    width: 32px;
+    height: 32px;
+    transition: transform .2s; /* Animation */
+}
+
+.photo.vk {
+    background-image: url("#{resource['img/vklogo.png']}");
+    float: left;
+}
+
+.photo.github {
+    background-image: url("#{resource['img/githublogo.png']}");
+    float: left;
+    margin-left: 5px;
+}
+
+.photo.telegram {
+    background-image: url("#{resource['img/telegramlogo.png']}");
+    float: left;
+    margin-left: 5px;
+}
+
+.photo:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}

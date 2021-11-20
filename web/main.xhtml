@@ -1,11 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:outputLabel value="Hello, world"/>
-</f:view>
+<html xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">>
+
+<h:head>
+    <title>Третья лабораторная работа по веб-программированию | Основная страницы </title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css" rel="stylesheet"/>
+    <h:outputStylesheet library = "css" name = "general.css"  />
+    <h:outputStylesheet library = "css" name = "main.css"  />
+</h:head>
+
+<h:body>
+<div class="contentRect animated zoomIn">
+    <div class="baseInsideRect taskRect">
+        Введите данные для определения вхождения точки в представленную область
+    </div>
+
+    <div class="baseInsideRect xRect">
+        <span class="baseLetter xLetter">X</span>
+        <h:selectOneRadio value = "#{userData.data}">
+            <f:selectItem itemValue = "1" itemLabel = "Item 1" />
+            <f:selectItem itemValue = "2" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "3" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "4" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "5" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "6" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "7" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "8" itemLabel = "Item 2" />
+            <f:selectItem itemValue = "9" itemLabel = "Item 2" />
+        </h:selectOneRadio>
+    </div>
+
+    <div class="baseInsideRect yRect">
+        <span class="baseLetter yLetter">Y</span>
+    </div>
+
+    <div class="baseInsideRect rRect">
+        <span class="baseLetter rLetter">R</span>
+    </div>
+</div>
+</h:body>
 </html>

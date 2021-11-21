@@ -1,6 +1,5 @@
 import javax.inject.Inject;
 import java.io.Serializable;
-import java.util.List;
 import java.util.UUID;
 import database.models.Entry;
 

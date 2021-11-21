@@ -74,6 +74,14 @@
     background-color: rgba(255, 255, 255, 0.85);
 }
 
+.baseLetter.yLetter {
+    margin-left: 100px;
+}
+
+.inputBox {
+    margin-top: 55px;
+}
+
 /* X */
 .baseInsideRect.xRect {
     margin-left: -400px;
@@ -102,6 +110,10 @@
     background-color: rgba(255, 255, 255, 0.85);
 }
 
+.selectBox {
+    margin-top: 50px;
+}
+
 
 /* R */
 .baseInsideRect.rRect {
@@ -114,4 +126,54 @@
 .baseLetter.rLetter {
     margin-top: -10px;
     margin-left: 240px;
+}
+
+.commandLinkBox {
+    margin-top: 25px;
+    margin-left: 163px;
+}
+
+.link {
+    display:block;
+    float: left;
+    margin-left: 20px;
+}
+
+/* Button */
+.checkButton {
+    position: absolute;
+    width: 200px;
+    height: 40px;
+    margin-left: 640px;
+    margin-top: 340px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 21px;
+    border: none;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+}
+
+
+.checkButton:hover {
+    background-color: darkgrey;
+}
+
+.buttonLetter {
+    font-family: sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 19px;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.75);
+    cursor: pointer;
 }

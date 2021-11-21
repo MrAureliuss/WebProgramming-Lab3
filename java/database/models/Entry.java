@@ -1,7 +1,13 @@
+package database.models;
+
 import javax.persistence.*;
 
 @Entity
+@Table (name = "entry")
 public class Entry {
+    public Entry() {
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
@@ -66,6 +72,8 @@ public class Entry {
     }
 
     public void checkHit() {
-        // TODO
+        this.hit = ((X >= -R && X <= 0 && Y >= -R/2 && Y <= 0) ||
+                (-2*Y <= (-X + R) && Y <= 0 && X >= 0) ||
+                ((X*X + Y*Y) <= R*R && X <= 0 && Y >= 0));
     }
 }

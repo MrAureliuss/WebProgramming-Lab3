@@ -5,10 +5,11 @@ import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
-public class HibernateSessionFactoryUtil {
+public class HibernateUtils {
+
     private static SessionFactory sessionFactory;
 
-    private HibernateSessionFactoryUtil() {}
+    private HibernateUtils() {}
 
     public static SessionFactory getSessionFactory() {
         if (sessionFactory == null) {
@@ -24,4 +25,6 @@ public class HibernateSessionFactoryUtil {
         }
         return sessionFactory;
     }
+
+
 }

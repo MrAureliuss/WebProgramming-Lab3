@@ -12,15 +12,15 @@ public class Entry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ID;
 
-    @Column(nullable = false)
+    @Column(name = "x", nullable = false)
     private Double X;
-    @Column(nullable = false)
+    @Column(name = "y", nullable = false)
     private Double Y;
-    @Column(nullable = false)
+    @Column(name = "r", nullable = false)
     private Double R;
-    @Column(nullable = false)
+    @Column(name = "hit", nullable = false)
     private boolean hit;
-    @Column(nullable = false)
+    @Column(name = "session_id", nullable = false)
     private String session_id;
 
     public Integer getID() {

@@ -1,5 +1,6 @@
 import javax.inject.Inject;
 import java.io.Serializable;
+import java.util.List;
 import java.util.UUID;
 import database.models.Entry;
 
@@ -21,9 +22,9 @@ public class MainBean implements Serializable {
         this.newEntry = newEntry;
     }
 
-//    public List<Entry> getEntries() {
-//        return entryDAO.getEntries(this.session_id.toString());
-//    }
+    public List<Entry> getEntries() {
+        return entryDAO.getEntries(this.session_id.toString());
+    }
 
     public void addEntry() {
         newEntry.setSession_id(session_id.toString());

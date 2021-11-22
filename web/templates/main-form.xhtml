@@ -73,7 +73,9 @@
                 </div>
             </div>
 
-            <h:commandButton id="submit" action="#{mainBean.addEntry()}" value="ПроверОЧКА" styleClass="checkButton buttonLetter"/>
+            <h:commandButton id="submit" action="#{mainBean.addEntry()}" value="ПроверОЧКА" styleClass="checkButton buttonLetter">
+                <f:ajax execute="@form" render="@form" />
+            </h:commandButton>
 
         </h:form>
     </div>

@@ -12,6 +12,8 @@ public class MainBean implements Serializable {
 
     public MainBean() {
         newEntry = new Entry();
+        newEntry.setX(1.0);
+        newEntry.setR(1.0);
     }
 
     public Entry getNewEntry() {
@@ -30,7 +32,10 @@ public class MainBean implements Serializable {
         newEntry.setSession_id(session_id.toString());
         newEntry.checkHit();
         entryDAO.add(newEntry);
+
         newEntry = new Entry();
+        newEntry.setX(1.0);
+        newEntry.setR(1.0);
     }
 
 }

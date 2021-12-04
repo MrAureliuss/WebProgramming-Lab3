@@ -73,11 +73,11 @@
                 </div>
             </div>
 
-            <h:commandButton id="submit" action="#{mainBean.addEntry()}" value="ПроверОЧКА" styleClass="checkButton buttonLetter">
-                <f:ajax execute="@form" render="@form" />
+            <h:commandButton id="submit" action="#{mainBean.addEntry()}" update="resultTable" value="ПроверОЧКА" styleClass="checkButton buttonLetter">
+                <f:ajax execute="@form" render="@form resultTable" />
             </h:commandButton>
-
         </h:form>
+
     </div>
 </h:body>
 </html>

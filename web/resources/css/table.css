@@ -1,0 +1,48 @@
+.tableRect {
+    text-align: left;
+    margin : 30px auto 0 auto;
+    width: 550px;
+    height: 300px;
+    mix-blend-mode: hard-light;
+    border-radius: 20px;
+    background-color: rgba(205, 205, 205, 0.85);
+    font-family: fantasy;
+    font-size: 24px;
+    color: white;
+}
+
+#resultTable,
+#tableBody > td {
+    table-layout: fixed;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+#resultTable td {
+    padding: 10px;
+    table-layout: fixed;
+    text-align: center;
+    border-collapse: collapse;
+}
+
+.tableHead {
+    overflow-y: auto;
+    height: 250px;
+    margin: 0 auto auto;
+    width: 452px;
+    color: black;
+    font-size: 14px;
+    font-family: fantasy;
+}
+
+.tableHead thead th {
+    position: sticky;
+    top: 0;
+    background-color: rgb(215, 215, 215);
+    background-blend-mode: hard-light;
+}
+
+.XColumn { width: 20%; }
+.YColumn { width: 20%; }
+.RColumn { width: 20%; }
+.ResultColumn { width: 40%; }

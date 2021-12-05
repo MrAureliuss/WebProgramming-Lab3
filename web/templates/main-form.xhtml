@@ -3,19 +3,27 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
 
-<h:body>
+<h:body onload="setCurrentX('1'); draw(); setCurrentR(1); GetCellValues(); redrawWithNewR()">
+    <h:outputScript library="js" name="interactiveCanvas.js" />
+
     <div class="contentRect animated zoomIn">
         <div class="baseInsideRect taskRect">
             Введите данные для определения вхождения точки в представленную область
         </div>
 
         <h:form id="form">
+            <div class="baseInsideRect taskPhoto" style="text-align: center">
+                <canvas width="220px" height="220px" id="canvas" style="background-image: url(#{resource['img/taskPhoto.png']})"></canvas>
+            </div>
+
             <div class="baseInsideRect xRect">
                 <span class="baseLetter xLetter">X</span>
                 <div class="selectBox">
-                    <h:selectOneRadio value = "#{mainBean.newEntry.x}" id="selectRadio" required="true">
+                    <h:selectOneRadio value = "#{mainBean.newEntry.x}" id="selectRadio" required="true" onclick="setCurrentX(this.value); update();">
                         <f:selectItem itemValue = "-3" itemLabel = "-3" />
                         <f:selectItem itemValue = "-2" itemLabel = "-2" />
                         <f:selectItem itemValue = "-1" itemLabel = "-1" />
@@ -31,7 +39,7 @@
 
             <div class="baseInsideRect yRect">
                 <span class="baseLetter yLetter">Y</span>
-                <h:inputText id="y_chooser" value="#{mainBean.newEntry.y}" maxlength="8" required="true"
+                <h:inputText id="y_chooser" value="#{mainBean.newEntry.y}" maxlength="8" required="true" onchange="update()"
                              requiredMessage="Введите Y!"
                              converterMessage="Y должен быть числом, лежащим в промежутке (-3; 3)!"
                              validatorMessage="Y должен лежать в промежутке(-3; 3)!">
@@ -46,27 +54,27 @@
             <div class="baseInsideRect rRect">
                 <span class="baseLetter rLetter">R</span>
                 <div class="commandLinkBox">
-                    <h:commandLink value = "1" styleClass="link">
+                    <h:commandLink value = "1" styleClass="link" onclick="clearCanvas(); setCurrentR(1); GetCellValues(); redrawWithNewR(); update()">
                         <f:ajax execute="@form" render="@none" />
                         <f:setPropertyActionListener target="#{mainBean.newEntry.r}" value="1.0" />
                     </h:commandLink>
 
-                    <h:commandLink value = "2" styleClass="link">
+                    <h:commandLink value = "2" styleClass="link" onclick="clearCanvas(); setCurrentR(2); GetCellValues(); redrawWithNewR(); update()">
                         <f:ajax execute="@form" render="@none" />
                         <f:setPropertyActionListener target="#{mainBean.newEntry.r}" value="2.0" />
                     </h:commandLink>
 
-                    <h:commandLink value = "3" styleClass="link">
+                    <h:commandLink value = "3" styleClass="link" onclick="clearCanvas(); setCurrentR(3); GetCellValues(); redrawWithNewR(); update()">
                         <f:ajax execute="@form" render="@none" />
                         <f:setPropertyActionListener target="#{mainBean.newEntry.r}" value="3.0" />
                     </h:commandLink>
 
-                    <h:commandLink value = "4" styleClass="link">
+                    <h:commandLink value = "4" styleClass="link" onclick="clearCanvas(); setCurrentR(4); GetCellValues(); redrawWithNewR(); update()">
                         <f:ajax execute="@form" render="@none" />
                         <f:setPropertyActionListener target="#{mainBean.newEntry.r}" value="4.0" />
                     </h:commandLink>
 
-                    <h:commandLink value = "5" styleClass="link">
+                    <h:commandLink value = "5" styleClass="link" onclick="clearCanvas(); setCurrentR(5); GetCellValues(); redrawWithNewR(); update()">
                         <f:ajax execute="@form" render="@none" />
                         <f:setPropertyActionListener target="#{mainBean.newEntry.r}" value="5.0" />
                     </h:commandLink>

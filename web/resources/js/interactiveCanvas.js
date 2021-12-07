@@ -6,10 +6,11 @@ let r;
 let reserveCtx;
 let currentX = 0;
 let currentR = 0;
-let userPoints = Array();
 
 function setCurrentX(newX) {
     currentX = newX;
+    let radioBtn = document.getElementById("form:selectRadio:"+(Number(newX) + 3).toString()); // CAN BE MORE CRINGE?
+    radioBtn.checked = true;
 }
 
 function getCurrentX() {
@@ -51,11 +52,11 @@ function draw() {
             y = zero - (e.pageY - topPos);
 
             r = getCurrentR();
-            if (r !== null){
+            if (r !== null) {
                 x = Math.round(x / rConstLength * r);
                 y = (y / rConstLength * r).toFixed(5);
 
-                if (contains([-3, -2, -1, 0, 1, 2, 3], x) && (-3 < y) && (y < 3)) {
+                if (contains([-3, -2, -1, 0, 1, 2, 3, 4, 5], x) && (-3 <= y) && (y <= 3)) {
                     const YField = document.getElementById('form:y_chooser');
                     YField.value = y;
                     setCurrentX(x);
@@ -79,7 +80,11 @@ function pointDraw() {
         loadCtxURL(ctx);
         ctx.beginPath();
 
-        ctx.fillStyle = "#EDB22E";
+        if (checkHit(x, y, r)) {
+            ctx.fillStyle = "#2DCF00";
+        } else {
+            ctx.fillStyle = "#FF2A1F";
+        }
         ctx.moveTo(125, 35);
         ctx.arc(xCanvas, yCanvas, 3, 0, 2 * Math.PI);
         ctx.fill();
@@ -96,7 +101,11 @@ function pointOldArc(x, y, r) {
         const ctx = canvas.getContext('2d');
         ctx.beginPath();
 
-        ctx.fillStyle = "#EDB22E";
+        if (checkHit(x, y, r)) {
+            ctx.fillStyle = "#2DCF00";
+        } else {
+            ctx.fillStyle = "#FF2A1F";
+        }
         ctx.moveTo(125, 35);
         ctx.arc(xCanvas, yCanvas, 3, 0, 2 * Math.PI);
         ctx.fill();
@@ -110,8 +119,8 @@ function update() {
     y = document.getElementById('form:y_chooser').value.trim().replace(",", ".");
     x = getCurrentX().toString();
 
-    if (contains(["-3", "-2", "-1", "0", "1", "2", "3"], x)
-        && (y !== "") && (-3 < y) && (y < 3) &&
+    if (contains(["-3", "-2", "-1", "0", "1", "2", "3", "4", "5"], x)
+        && (y !== "") && (-3 <= y) && (y <= 3) &&
         contains(['1', '2', '3', '4', '5'], r)) pointDraw();
     else {
         const canvas = document.getElementById('canvas');
@@ -124,7 +133,14 @@ function update() {
 }
 
 function redrawWithNewR() {
-    userPoints.forEach(point => pointOldArc(point.getX, point.getY, getCurrentR()));
+    console.log("asdas");
+    let table = document.getElementById('resultTable');
+    for (let r = 1, n = table.rows.length; r < n; r++) {
+        if (table.rows[r].cells[1].innerHTML.trim() !== "") {
+            console.log(table.rows[r].cells[0].innerHTML.trim(), table.rows[r].cells[1].innerHTML.trim(), getCurrentR());
+            pointOldArc(table.rows[r].cells[0].innerHTML.trim(), table.rows[r].cells[1].innerHTML.trim(), getCurrentR());
+        }
+    }
 }
 
 
@@ -136,32 +152,14 @@ function contains(a, obj) {
     return false;
 }
 
-function GetCellValues() {
-    userPoints = [];
-    let table = document.getElementById('resultTable');
-    for (let r = 1, n = table.rows.length; r < n; r++) {
-        userPoints.push(new Point(table.rows[r].cells[0].innerHTML.trim(),
-            table.rows[r].cells[1].innerHTML.trim(),
-            table.rows[r].cells[2].innerHTML.trim()));
-    }
+function reload() {
+    document.location = document.location;
+    draw();
+    redrawWithNewR()
 }
 
-class Point {  // CRINGE CODE
-    constructor(x, y, r) {
-        this.x = x;
-        this.y = y;
-        this.r = r
-    }
-
-    get getX() {
-        return this.x;
-    }
-
-    get getY() {
-        return this.y
-    }
-
-    get getR() {
-        return this.r
-    }
+function checkHit(X, Y, R) {
+    return ((X >= -R && X <= 0 && Y >= -R/2 && Y <= 0) ||
+        (-2*Y <= (-X + R) && Y <= 0 && X >= 0) ||
+        ((X*X + Y*Y) <= R*R && X <= 0 && Y >= 0));
 }

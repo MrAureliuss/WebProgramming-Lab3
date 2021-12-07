@@ -12,7 +12,7 @@ public class MainBean implements Serializable {
 
     public MainBean() {
         newEntry = new Entry();
-        newEntry.setX(1.0);
+        newEntry.setX(0.0);
         newEntry.setR(1.0);
     }
 
@@ -34,7 +34,7 @@ public class MainBean implements Serializable {
         entryDAO.add(newEntry);
 
         newEntry = new Entry();
-        newEntry.setX(1.0);
+        newEntry.setX(0.0);
         newEntry.setR(1.0);
     }
 

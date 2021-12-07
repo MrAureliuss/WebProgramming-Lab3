@@ -177,3 +177,23 @@
     color: rgba(0, 0, 0, 0.75);
     cursor: pointer;
 }
+
+/* Photos */
+.photo {
+    display: block;
+    width: 32px;
+    height: 32px;
+    transition: transform .2s; /* Animation */
+}
+
+.photo.close {
+    background-image: url("#{resource['img/close.png']}");
+    margin-left: 880px;
+    margin-top: 50px;
+}
+
+.photo:hover {
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
